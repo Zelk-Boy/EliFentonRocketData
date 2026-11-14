@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rocket launch and landing distance research data.">
+    <title>Rocket Launch &amp; Landing Distance</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --page: #f5f7fb;
+            --surface: #ffffff;
+            --ink: #1d2b41;
+            --muted: #64748b;
+            --line: #dce3ed;
+            --accent: #315da8;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--page);
+            color: var(--ink);
+            font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+            line-height: 1.6;
+        }
+
+        main {
+            width: min(100% - 32px, 900px);
+            margin: 0 auto;
+            padding: 48px 0;
+        }
+
+        header {
+            margin-bottom: 28px;
+            padding-bottom: 22px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .eyebrow {
+            margin: 0 0 8px;
+            color: var(--accent);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2rem, 6vw, 3rem);
+            letter-spacing: -0.04em;
+            line-height: 1.15;
+        }
+
+        header p:last-child {
+            margin: 12px 0 0;
+            color: var(--muted);
+        }
+
+        .distance,
+        .details,
+        .chart {
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: var(--surface);
+        }
+
+        .distance {
+            margin-bottom: 24px;
+            padding: 24px;
+        }
+
+        .distance h2,
+        .details h2,
+        .charts h2 {
+            margin: 0 0 14px;
+            font-size: 1.2rem;
+        }
+
+        .distance-value {
+            margin: 0;
+            color: var(--accent);
+            font-size: clamp(2.4rem, 8vw, 4rem);
+            font-weight: 750;
+            letter-spacing: -0.05em;
+            line-height: 1.1;
+        }
+
+        .distance-note {
+            margin: 8px 0 0;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .details {
+            margin-bottom: 32px;
+            padding: 24px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th,
+        td {
+            padding: 12px 10px;
+            border-bottom: 1px solid var(--line);
+            vertical-align: top;
+        }
+
+        th {
+            width: 34%;
+            color: var(--muted);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        td {
+            overflow-wrap: anywhere;
+        }
+
+        tr:last-child th,
+        tr:last-child td {
+            border-bottom: 0;
+        }
+
+        .charts > p {
+            margin: -6px 0 16px;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .chart-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .chart {
+            overflow: hidden;
+            margin: 0;
+        }
+
+        .chart img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: contain;
+            background: #fff;
+        }
+
+        figcaption {
+            padding: 12px 14px;
+            border-top: 1px solid var(--line);
+            font-size: 0.9rem;
+            font-weight: 650;
+        }
+
+        footer {
+            margin-top: 32px;
+            padding-top: 16px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 0.82rem;
+        }
+
+        @media (max-width: 600px) {
+            main {
+                padding: 32px 0;
+            }
+
+            .chart-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <p class="eyebrow">Science paper · Data page</p>
+            <h1>Rocket Launch &amp; Landing Distance</h1>
+            <p>Measurements and charts for the rocket flight experiment.</p>
+        </header>
+
+        <section class="distance" aria-labelledby="distance-heading">
+            <h2 id="distance-heading">Launch-to-landing distance</h2>
+            <p class="distance-value">[Distance]</p>
+            <p class="distance-note">Add the measured value and unit (for example, meters).</p>
+        </section>
+
+        <section class="details" aria-labelledby="details-heading">
+            <h2 id="details-heading">Experiment details</h2>
+            <table>
+                <tbody>
+                    <tr>
+                        <th scope="row">Experiment / flight ID</th>
+                        <td>[Add ID]</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Date and time</th>
+                        <td>[Add date and time]</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Launch location</th>
+                        <td>[Add location or coordinates]</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Landing location</th>
+                        <td>[Add location or coordinates]</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Measurement method</th>
+                        <td>[Describe how the distance was measured]</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="charts" aria-labelledby="charts-heading">
+            <h2 id="charts-heading">Charts</h2>
+            <p>Datasets are exact.</p>
+            <div class="chart-grid">
+                <figure class="chart">
+                    <!-- Replace with a direct URL to your first chart image. -->
+                    <img src="PASTE_CHART_1_IMAGE_URL_HERE" alt="First research chart">
+                    <figcaption>[Chart 1 title or description]</figcaption>
+                </figure>
+                <figure class="chart">
+                    <!-- Replace with a direct URL to your second chart image. -->
+                    <img src="PASTE_CHART_2_IMAGE_URL_HERE" alt="Second research chart">
+                    <figcaption>[Chart 2 title or description]</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <footer>
+            <p>Rocket flight research data</p>
+        </footer>
+    </main>
+</body>
+</html>
